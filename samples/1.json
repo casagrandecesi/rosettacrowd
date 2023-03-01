@@ -32,7 +32,7 @@
         },
         "translations": {
             "fr-en": ["Ficher", "Quitter", "Recharger", "Signets", "Sécurité", "Paramètres"],
-            "fr-it": ["Ficher", "Quitter", "Recharger", "Signets", "Sécurité", "Paramètres"],
+            "fr-it": ["Ficher", "Quitter", "Recharger", "Signets", "Sécurité", "Paramètres"]
         }
     }
 ]
