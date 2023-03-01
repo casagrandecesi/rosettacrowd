@@ -1,0 +1,38 @@
+[
+    {
+        "project": "LibreOffice",
+        "homepage": "https://libreoffice.org/",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/LibreOffice_logo.svg/1280px-LibreOffice_logo.svg.png",
+        "description": {
+            "en": "LibreOffice is a free and powerful office suite, and a successor to OpenOffice.org. Its clean interface and feature-rich tools help you unleash your creativity and enhance your productivity."
+        },
+        "translations": {
+            "en-it": ["Settings", "Archive", "Bold", "Italic", "White", "Yellow", "Cancel"],
+            "en-fr": ["Settings", "Archive", "Bold", "Italic", "White", "Yellow", "Cancel"]
+        }
+    },
+    {
+        "project": "Kdenlive",
+        "homepage": "https://kdenlive.org",
+        "logo": "https://kdenlive.org/wp-content/uploads/2016/06/kdenlive-logo-hori.png",
+        "description": {
+            "it": "Kdenlive è un programma di montaggio video libero, gratuito ed opensource, concepito per rispondere a diverse esigenze, dal montaggio base all'uso professionale."
+        },
+        "translations": {
+            "it-en": ["Video", "Traccia", "Audio", "Transizione", "Ridimensiona", "Converti"],
+            "it-fr": ["Video", "Traccia", "Audio", "Transizione", "Ridimensiona", "Converti"]
+        }
+    },
+    {
+        "project": "Firefox",
+        "homepage": "https://www.mozilla.org/it/firefox/",
+        "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Firefox_logo_and_wordmark_%28horizontal%29%2C_2019.svg/langfr-1920px-Firefox_logo_and_wordmark_%28horizontal%29%2C_2019.svg.png",
+        "description": {
+            "fr": "Mozilla Firefox est un navigateur web libre et gratuit disponible pour PC (Windows, macOS, Linux, BSD, etc.) et mobiles (Android, iOS), développé et distribué par la Mozilla Foundation"
+        },
+        "translations": {
+            "fr-en": ["Ficher", "Quitter", "Recharger", "Signets", "Sécurité", "Paramètres"],
+            "fr-it": ["Ficher", "Quitter", "Recharger", "Signets", "Sécurité", "Paramètres"],
+        }
+    }
+]
