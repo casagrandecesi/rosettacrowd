@@ -4,7 +4,9 @@
         "homepage": "https://libreoffice.org/",
         "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/c/c0/LibreOffice_logo.svg/1280px-LibreOffice_logo.svg.png",
         "description": {
-            "en": "LibreOffice is a free and powerful office suite, and a successor to OpenOffice.org. Its clean interface and feature-rich tools help you unleash your creativity and enhance your productivity."
+            "en": "LibreOffice is a free and powerful office suite, and a successor to OpenOffice.org. Its clean interface and feature-rich tools help you unleash your creativity and enhance your productivity.",
+            "it": "LibreOffice è una suite per ufficio libera e potente nonché il successore di OpenOffice.org. La sua interfaccia pulita ed i suoi ricchi strumenti stimoleranno la tua creatività e miglioreranno la tua produttività.",
+            "fr": "LibreOffice est une suite bureautique gratuite et puissante, et un successeur d'OpenOffice.org. Sa interface épurée et ses outils riches en fonctionnalités vous aident à libérer votre créativité et à améliorer votre productivité."
         },
         "translations": {
             "en-it": ["Settings", "Archive", "Bold", "Italic", "White", "Yellow", "Cancel"],
@@ -16,7 +18,9 @@
         "homepage": "https://kdenlive.org",
         "logo": "https://kdenlive.org/wp-content/uploads/2016/06/kdenlive-logo-hori.png",
         "description": {
-            "it": "Kdenlive è un programma di montaggio video libero, gratuito ed opensource, concepito per rispondere a diverse esigenze, dal montaggio base all'uso professionale."
+            "it": "Kdenlive è un programma di montaggio video libero, gratuito ed opensource, concepito per rispondere a diverse esigenze, dal montaggio base all'uso professionale.",
+            "en": "Kdenlive is a video editing software free, libre and opensource, developed to answer to a range of needs, from basic montage to professional usage.",
+            "fr": "Kdenlive est un logiciel de montage vidéo gratuit, libre et opensource, développé pour répondre à un éventail de besoins, du montage de base à un usage professionnel."
         },
         "translations": {
             "it-en": ["Video", "Traccia", "Audio", "Transizione", "Ridimensiona", "Converti"],
@@ -28,6 +32,8 @@
         "homepage": "https://www.mozilla.org/it/firefox/",
         "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Firefox_logo_and_wordmark_%28horizontal%29%2C_2019.svg/langfr-1920px-Firefox_logo_and_wordmark_%28horizontal%29%2C_2019.svg.png",
         "description": {
+            "it": "Mozilla Firefox è un web browser libero e gratuito disponibile per PC (Windows, macOS, Linux, BSD ecc.) e per smartphone (Android, iOS), sviluppato e distribuito dalla Mozilla FOundation",
+            "en": "Mozilla Firefox is a free and libre web browser, available for PC (Windows, macOS, Linux, BSD, etc.) and for smartphones (Android, iOS), developed and distributed by Mozilla Foundation",
             "fr": "Mozilla Firefox est un navigateur web libre et gratuit disponible pour PC (Windows, macOS, Linux, BSD, etc.) et mobiles (Android, iOS), développé et distribué par la Mozilla Foundation"
         },
         "translations": {
