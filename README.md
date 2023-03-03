@@ -5,7 +5,7 @@
 # Rosetta Crowd
 > Prototipo di traduzione crowd-sourced per progetti opensource sviluppato dagli studenti dell'I.I.S. "Casagrande-Cesi" di Terni
 
-[![Scratch](https://img.shields.io/badge/scratch-blue.svg)](https://scratch.mit.edu/)
+[![App Lab](https://img.shields.io/badge/code.org-applab-blue.svg)](https://code.org/educate/applab)
 [![License](https://img.shields.io/github/license/casagrandecesi/rosettacrowd.svg)](https://opensource.org/licenses/MIT)
 [![GitHub issues](https://img.shields.io/github/issues/casagrandecesi/rosettacrowd.svg)](https://github.com/casagrandecesi/rosettacrowd/issues)
 
@@ -17,7 +17,7 @@
 
 ## Introduzione
 
-L'idea alla base di Rosetta Crowd è quella di fornire a chiunque la possibilità di supportare i progetti opensource promuovendone allo stesso tempo la diffusione presso il publico non tecnico. L'app consente di inviare delle traduzioni preventivamente richieste dagli sviluppatori: gli utenti dell'app, dopo aver scelto la propria lingua madre ed una seconda lingua conosciuta, potranno cimentarsi nella traduzione di parole e brevi frasi. Allo stesso tempo gli utenti potranno scoprire i più svariati progetti opensource ad approfondire (e magari scaricare!) quelli più interessanti.
+Rosetta Crowd consente a chiunque di supportare i progetti opensource promuovendone allo stesso tempo la diffusione presso il publico non tecnico. L'app consente di inviare delle traduzioni preventivamente richieste dagli sviluppatori: gli utenti dell'app, dopo aver scelto la propria lingua madre ed una seconda lingua conosciuta, potranno cimentarsi nella traduzione di parole e brevi frasi. Allo stesso tempo gli utenti potranno scoprire i più svariati progetti opensource ad approfondire (e magari scaricare!) quelli più interessanti.
 
 L'app è stata sviluppata dalla classe IV A (A.S. 2022/23) dell'I.I.S. "Casagrande-Cesi" di Terni nell'ambito del concorso "Libertà e solidarietà nella società digitale" indetto da "Programma il futuro" nel 2023.
 
