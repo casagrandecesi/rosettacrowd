@@ -30,7 +30,7 @@ function cambiaLingua(lingua) {
     setProperty("button_non_so", "text", "Non saprei...");
     setProperty("label_traduzione_ok", "text", "Grazie per la traduzione!");
     setProperty("label_traduzione_ko", "text", "Non ti preoccupare, prova con un'altra traduzione!");
-    setProperty("text_area_guida", "text", "Rosetta Crowd consente a chiunque di esplorare il mondo del software opensource contribuendo allo stesso tempo al suo sviluppo! Non è necessario essere programmatori esperti: anche tradurre parole o piccole frasi è un servizio utilissimo per favorire la diffusione del software a sorgente aperto!");
+    setProperty("text_area_guida", "text", "Rosetta Crowd \consente a chiunque di esplorare il mondo del software opensource contribuendo allo stesso tempo al suo sviluppo! Non è necessario essere programmatori esperti: anche tradurre parole o piccole frasi è un servizio utilissimo per favorire la diffusione del software a sorgente aperto!");
     setProperty("label_classe", "text", "Classe IV A 2022-23");
     setProperty("label_setup", "text", "Configurazione");
     setProperty("label_setup_sub", "text", "Supporta il software opensource traducendo parole o brevi frasi!");
@@ -78,10 +78,8 @@ function scegliTraduzione() {
   var key = "";
   while (trad === false && conta < 100) {
     var progetto = randInt(0, db.length);
-    console.log("progetto = ", progetto);
     var trans = db[progetto].translations[lang1];
     key = lang1;
-    console.log("trans = ", trans);
     if (typeof trans === "undefined") {
       trans = db[progetto].translations[lang2];
       key = lang2;
@@ -89,17 +87,16 @@ function scegliTraduzione() {
     if (typeof trans !== "undefined") {
       var parola = randInt(0, trans.length);
       var chiave = progetto + "-" + parola;
-      console.log("Provo ", chiave)
       if (typeof storico[chiave] === "undefined") {
         var v = key.split("-");
         trad = {
-          progetto: db[progetto].project,
-          sito: db[progetto].homepage,
-          logo: db[progetto].logo,
-          dettagli: db[progetto].description[lang_madre],
-          parola: trans[parola],
-          lang1: v[0],
-          lang2: v[1]
+         progetto: db[progetto].project,
+         sito: db[progetto].homepage,
+         logo: db[progetto].logo,
+         dettagli: db[progetto].description[lang_madre],
+         parola: trans[parola],
+         lang1: v[0],
+         lang2: v[1]
         }
         storico[chiave] = true;
       }
@@ -126,7 +123,7 @@ function traduci() {
     setScreen("screen_no_traduzioni");
   }
 }
-onEvent("button_setup_avanti", "click", function () {
+onEvent("button_setup_avanti", "click", function( ) {
   lang_madre_str = getText("dropdown_setup_lingua_madre");
   lang_trad_str = getText("dropdown_setup_lingua_traduzioni");
   var m = codiceLingua(lang_madre_str);
@@ -136,57 +133,60 @@ onEvent("button_setup_avanti", "click", function () {
   lang2 = t + "-" + m;
   traduci();
 });
-onEvent("dropdown_setup_lingua_madre", "change", function () {
+onEvent("dropdown_setup_lingua_madre", "change", function( ) {
   lingua = codiceLingua(getText("dropdown_setup_lingua_madre"));
   cambiaLingua(lingua);
 });
-onEvent("button_riprova", "click", function () {
+onEvent("button_riprova", "click", function( ) {
   traduci();
 });
-onEvent("button_invia", "click", function () {
+onEvent("button_invia", "click", function ( ) {
   var traduzione = getProperty("text_input_traduzione", "value");
   if (traduzione.trim().length === 0) {
     setProperty("text_input_traduzione", "background-color", "rgb(251, 220, 220)");
-    playSound("/assets/category_alerts/airy_bell_notification.mp3");
+    playSound("assets/category_alerts/airy_bell_notification.mp3");
     return;
   }
   ++conta;
-  setProperty("screen_traduzione_ok", "image", "/assets/OK-" + (conta % 2) + ".png");
+  setProperty("screen_traduzione_ok", "image", "assets/OK-" + (conta % 2) + ".png");
   setScreen("screen_traduzione_ok");
-  playSound("/assets/category_achievements/peaceful_win_2.mp3")
+  playSound("assets/category_achievements/peaceful_win_2.mp3")
   setTimeout(traduci, 2500);
 });
-onEvent("button_non_so", "click", function () {
+onEvent("button_non_so", "click", function ( ) {
   ++conta;
-  setProperty("screen_traduzione_ko", "image", "/assets/KO-" + (conta % 2) + ".png");
+  setProperty("screen_traduzione_ko", "image", "assets/KO-" + (conta % 2) + ".png");
   setScreen("screen_traduzione_ko");
-  playSound("/assets/category_points/negative_point_counter_2.mp3")
+  playSound("assets/category_points/negative_point_counter_2.mp3")
   setTimeout(traduci, 2500);
 });
-onEvent("button_sito", "click", function () {
+onEvent("button_sito", "click", function ( ) {
   open(traduzione.sito);
 });
-onEvent("button_informazioni", "click", function () {
+onEvent("button_informazioni", "click", function ( ) {
   setScreen("screen_dettagli");
 });
-onEvent("button_ok_dettagli", "click", function () {
+onEvent("button_ok_dettagli", "click", function ( ) {
   setScreen("screen_traduci");
 });
-onEvent("button_guida_1", "click", function () {
+onEvent("button_guida_1", "click", function ( ) {
   last_screen = "screen_setup";
   setScreen("screen_guida");
 });
-onEvent("button_guida_2", "click", function () {
+onEvent("button_guida_2", "click", function ( ) {
   last_screen = "screen_traduci";
   setScreen("screen_guida");
 });
-onEvent("button_ok_guida", "click", function () {
+onEvent("button_ok_guida", "click", function ( ) {
   setScreen(last_screen);
 });
+onEvent("button_riconfigura", "click", function ( ) {
+  setScreen("screen_setup");
+});
 cambiaLingua("it");
-startWebRequest("https://raw.githubusercontent.com/casagrandecesi/rosettacrowd/main/samples/1.json?x=3", function (status, type, content) {
+startWebRequest("https://raw.githubusercontent.com/casagrandecesi/rosettacrowd/main/samples/1.json?x=3", function(status, type, content) {
   db = JSON.parse(content);
-  setTimeout(function () {
+  setTimeout(function() {
     setScreen("screen_setup");
   }, 4000);
 });
