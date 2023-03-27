@@ -2,6 +2,7 @@ lingua = "it";
 db = {};
 storico = {};
 conta = 0;
+traduzioni = 0;
 // Preso da https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random
 function randInt(min, max) {
   min = Math.ceil(min);
@@ -34,6 +35,14 @@ function cambiaLingua(lingua) {
     setProperty("label_classe", "text", "Classe IV A 2022-23");
     setProperty("label_setup", "text", "Configurazione");
     setProperty("label_setup_sub", "text", "Supporta il software opensource traducendo parole o brevi frasi!");
+    setProperty("label_badges_titolo", "text", "Le tue medaglie!");
+    setProperty("label_trad_principiante", "text", "Traduttore principiante");
+    setProperty("label_trad_esperto", "text", "Traduttore esperto");
+    setProperty("label_trad_eclettico", "text", "Maestro traduttore");
+    setProperty("label_congratulazioni", "text", "Congratulazioni!!!");
+    if (traduzioni >= 10) setProperty("label_prize_detail", "text", "Sei diventato un maestro traduttore!");
+    else if (traduzioni >= 3) setProperty("label_prize_detail", "text", "Sei diventato un traduttore esperto!");
+    else if (traduzioni >= 1) setProperty("label_prize_detail", "text", "Sei diventato un traduttore principiante!");
   }
   if (lingua == "en") {
     setProperty("label_setup_lingua_madre", "text", "Your mother tongue");
@@ -52,6 +61,13 @@ function cambiaLingua(lingua) {
     setProperty("label_classe", "text", "Class IV A 2022-23");
     setProperty("label_setup", "text", "Setup");
     setProperty("label_setup_sub", "text", "Support opensource software by translating words or short sentences!");
+    setProperty("label_badges_titolo", "text", "Your Achievements!");
+    setProperty("label_trad_principiante", "text", "Beginner Translator");
+    setProperty("label_trad_esperto", "text", "Expert Translator");
+    setProperty("label_trad_eclettico", "text", "Master Translator");
+    if (traduzioni >= 10) setProperty("label_prize_detail", "text", "You just became a Master Translator!");
+    else if (traduzioni >= 3) setProperty("label_prize_detail", "text", "You just became an Expert Translator!");
+    else if (traduzioni >= 1) setProperty("label_prize_detail", "text", "You Just became a Beginner Translator!");
   }
   if (lingua == "fr") {
     setProperty("label_setup_lingua_madre", "text", "Ta langue maternelle");
@@ -70,6 +86,13 @@ function cambiaLingua(lingua) {
     setProperty("label_classe", "text", "Classe IV A 2022-23");
     setProperty("label_setup", "text", "Configuration");
     setProperty("label_setup_sub", "text", "Soutenez les logiciels open source en traduisant des mots ou des petites phrases !");
+    setProperty("label_badges_titolo", "text", "Vos médailles!");
+    setProperty("label_trad_principiante", "text", "Traducteur débutant");
+    setProperty("label_trad_esperto", "text", "Traducteur expert");
+    setProperty("label_trad_eclettico", "text", "Maître Traducteur");
+    if (traduzioni >= 10) setProperty("label_prize_detail", "text", "Vous êtes devenu Maître Traducteur !");
+    else if (traduzioni >= 3) setProperty("label_prize_detail", "text", "Vous êtes devenu un Traducteur Expert !");
+    else if (traduzioni >= 1) setProperty("label_prize_detail", "text", "Vous êtes devenu traducteur débutant !");
   }
 }
 function scegliTraduzione() {
@@ -123,6 +146,22 @@ function traduci() {
     setScreen("screen_no_traduzioni");
   }
 }
+function badgePicture(soglia) {
+  if (traduzioni >= soglia) return "assets/medaglia_on.png";
+  else return "assets/medaglia_off.png";
+}
+function badgeColor(soglia) {
+  if (traduzioni >= soglia) return "rgb(77, 87, 95)";
+  else return "rgb(128, 128, 128)";
+}
+function setupBadges() {
+  setProperty("image_trad_principiante", "image", badgePicture(1));
+  setProperty("label_trad_principiante", "text-color", badgeColor(1));
+  setProperty("image_trad_esperto", "image", badgePicture(3));
+  setProperty("label_trad_esperto", "text-color", badgeColor(3));
+  setProperty("image_trad_eclettico", "image", badgePicture(10));
+  setProperty("label_trad_eclettico", "text-color", badgeColor(10));
+}
 onEvent("button_setup_avanti", "click", function( ) {
   lang_madre_str = getText("dropdown_setup_lingua_madre");
   lang_trad_str = getText("dropdown_setup_lingua_traduzioni");
@@ -148,10 +187,31 @@ onEvent("button_invia", "click", function ( ) {
     return;
   }
   ++conta;
+  ++traduzioni;
   setProperty("screen_traduzione_ok", "image", "assets/OK-" + (conta % 2) + ".png");
   setScreen("screen_traduzione_ok");
   playSound("assets/category_achievements/peaceful_win_2.mp3")
-  setTimeout(traduci, 2500);
+  if (traduzioni == 1) {
+    setTimeout(function () {
+      cambiaLingua(lingua);
+      setScreen("screen_prize");
+      setTimeout(traduci, 2500);
+    }, 2500);
+  } else if (traduzioni == 3) {
+    setTimeout(function () {
+      cambiaLingua(lingua);
+      setScreen("screen_prize");
+      setTimeout(traduci, 2500);
+    }, 2500);
+  } else if (traduzioni == 10) {
+    setTimeout(function () {
+      cambiaLingua(lingua);
+      setScreen("screen_prize");
+      setTimeout(traduci, 2500);
+    }, 2500);
+  } else {
+    setTimeout(traduci, 2500);
+  }
 });
 onEvent("button_non_so", "click", function ( ) {
   ++conta;
@@ -177,11 +237,19 @@ onEvent("button_guida_2", "click", function ( ) {
   last_screen = "screen_traduci";
   setScreen("screen_guida");
 });
+onEvent("button_badges", "click", function ( ) {
+  last_screen = "screen_traduci";
+  setupBadges();
+  setScreen("screen_badges");
+});
 onEvent("button_ok_guida", "click", function ( ) {
   setScreen(last_screen);
 });
 onEvent("button_riconfigura", "click", function ( ) {
   setScreen("screen_setup");
+});
+onEvent("button_badges_ok", "click", function ( ) {
+  setScreen(last_screen);
 });
 cambiaLingua("it");
 startWebRequest("https://raw.githubusercontent.com/casagrandecesi/rosettacrowd/main/samples/1.json?x=3", function(status, type, content) {
